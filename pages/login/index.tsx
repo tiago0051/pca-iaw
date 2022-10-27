@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaEyeSlash, FaUser } from 'react-icons/fa'
-import { Container, ContainerForm, Form, Titulo } from './style'
+import { Container, ContainerForm, Form, Titulo } from '../../styles/login'
 
 export default function Login() {
   return (
