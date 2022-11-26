@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React, { ReactElement } from 'react'
 import {
   FaBell,
@@ -15,6 +16,7 @@ export default function ContainerGlobal({
 }: {
   children: ReactElement | ReactElement[]
 }) {
+  const router = useRouter()
   return (
     <Container>
       <header>
@@ -26,15 +28,15 @@ export default function ContainerGlobal({
             height={35}
           />
         </div>
-        <label>
+        <label className="desktop">
           <FaSearch />
           <input type="text" placeholder="Buscar..." />
         </label>
 
         <div>
-          <FaBell />
+          <FaBell className="desktop" />
           <Image src="/avatar.webp" alt="Avatar" width={40} height={35} />
-          <div>
+          <div className="desktop">
             <p>Luke Asote</p>
             <p>Admin for Associations</p>
           </div>
@@ -42,17 +44,7 @@ export default function ContainerGlobal({
         </div>
       </header>
       <nav>
-        <NavItem>
-          <FaUser />
-          <p>Perfil</p>
-        </NavItem>
-
-        <NavItem>
-          <FaUsers />
-          <p>Usuários</p>
-        </NavItem>
-
-        <NavItem selecionado>
+        <NavItem selecionado onClick={() => router.push('/dashboard')}>
           <FaBookOpen />
           <p>Matérias</p>
         </NavItem>

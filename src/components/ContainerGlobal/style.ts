@@ -9,12 +9,26 @@ export const Container = styled.div`
     'header header header'
     'nav content content';
 
+  @media (max-width: 1024px) {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      'header'
+      'content';
+  }
+
   > header {
     grid-area: header;
     background-color: #0078f0;
     display: grid;
     grid-template-columns: 250px 1fr 300px;
     align-items: center;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+      .desktop {
+        display: none;
+      }
+    }
 
     > div:first-child {
       display: flex;
@@ -49,7 +63,7 @@ export const Container = styled.div`
     > div:last-child {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: right;
 
       > svg {
         color: white;
@@ -78,10 +92,19 @@ export const Container = styled.div`
     grid-area: nav;
     background: rgba(0, 120, 240, 0.5);
     padding-top: 20px;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
   }
 
-  > div {
+  > main {
     grid-area: content;
+    padding: 20px 40px 40px 20px;
+
+    @media (max-width: 768px) {
+      padding: 20px;
+    }
   }
 `
 
@@ -93,6 +116,7 @@ export const NavItem = styled.div<{ selecionado?: boolean }>`
   background: ${props =>
     props.selecionado ? 'rgba(0, 120, 240, 0.5)' : 'none'};
   border-left: ${props => (props.selecionado ? '4px solid white' : 'none')};
+  cursor: pointer;
 
   > svg {
     margin-right: 20px;
