@@ -65,6 +65,13 @@ export const ContainerForm = styled.div`
 
     margin-top: 52px;
   }
+
+  > .error {
+    color: red;
+    font-size: 15px;
+    position: absolute;
+    top: 155px;
+  }
 `
 
 export const Titulo = styled.h1`
@@ -133,10 +140,24 @@ export const Form = styled.form`
       }
     }
 
-    > svg {
+    > svg,
+    button {
       position: absolute;
       right: 5px;
       top: 6px;
+    }
+
+    > button {
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      :hover {
+        filter: brightness(1.2);
+      }
+    }
+
+    svg {
       font-size: 20px;
       color: rgba(0, 120, 240, 0.44);
     }
